@@ -1,0 +1,37 @@
+<div class="todos">
+  <md-card style="padding:0">
+    <md-toolbar class="toolbarStyles botBorder">
+      <md-card-title class="toolbarTitle">{{title}}</md-card-title>
+    </md-toolbar>
+    <md-card-content style="padding:20px">
+      <form (submit)="addTodo($event)">
+        <md-input style="width:80%" [(ngModel)]="newTodo" (keyup.enter)="newTodo=''" class="textfield" name="newTodo"></md-input>
+        <button md-mini-fab type="submit" [disabled]="newTodo===''"><md-icon class="md-24">add</md-icon></button>
+      </form>
+
+
+      <div [hidden]="newTodo">
+        Type in a new todo...
+      </div>
+
+      <div [hidden]="!newTodo">
+        Typing: {{ newTodo }}
+      </div>
+
+      <md-card >
+        <md-list>
+          <md-list-item class="botBorder" *ngFor="let todo of todos; let i=index">
+            <input type="checkbox" class="checkbox" [(ngModel)]="todo.completed" />
+            <span [ngClass]="{'checked': todo.completed}">{{ todo.newTodo }}</span>
+            <span (click)="deleteTodo(i)" class="delete-icon"></span>
+          </md-list-item>
+        </md-list>
+      </md-card>
+
+      <div>
+        <button [disabled]="buttonState()" [style.color]="buttonState() ? 'gray' : 'red'" 
+              md-raised-button (click)="deleteSelectedTodos()">Delete Selected</button>
+      </div>
+    </md-card-content>
+  </md-card>
+</div>

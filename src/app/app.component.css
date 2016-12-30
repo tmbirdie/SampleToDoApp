@@ -1,0 +1,28 @@
+.todos {
+  padding: 20px;
+  width: auto;
+}
+
+.todos md-card {
+  margin: 20px;
+}
+
+.cardStyle {
+  width: 80%;
+}
+
+.botBorder {
+  border-bottom: 1px solid grey;
+}
+
+.toolbarStyles {
+  background-color: cadetblue;
+  color:white; 
+  width: 100%;
+  border-radius: 3px 3px 0 0;
+  padding-top: 15px;
+}
+
+.toolbarTitle {
+  text-align: center;
+}
